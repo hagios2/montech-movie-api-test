@@ -1,0 +1,42 @@
+{
+  "name": "Montech_Node.js_Backend_Test",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=development node --experimental-vm-modules ./server.js",
+    "dev": "NODE_ENV=development env-cmd --file .env nodemon --experimental-vm-modules ./server.js",
+    "test": "env-cmd --file .env node --experimental-vm-modules node_modules/jest/bin/jest.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "env-cmd": "^10.1.0",
+    "express": "~4.11.1",
+    "express-bearer-token": "^2.1.0",
+    "express-validator": "^6.13.0",
+    "faker": "^6.6.6",
+    "hash": "^0.2.0",
+    "jest": "^28.1.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^2.2.24",
+    "mongodb-memory-server": "^8.9.0",
+    "mongoose": "^6.1.0",
+    "node-cache": "^5.1.2",
+    "uuid": "^3.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "esm": "^3.2.25",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-ng-annotate": "^1.1.0",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "^1.2.0",
+    "gulp-watch": "^4.3.4",
+    "supertest": "^1.2.0",
+    "supertest-as-promised": "^3.1.0"
+  }
+}

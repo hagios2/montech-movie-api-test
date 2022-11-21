@@ -6,7 +6,6 @@ import { addMovie } from '../../src/services/Movies/MovieService.js'
 
 const mongoServer = await MongoMemoryServer.create()
 
-jest.setTimeout(30000);
 describe('Movie List Services', () => {
   let user = null
   beforeAll(async function () {

@@ -4,13 +4,13 @@ import { logInUser } from '../../src/services/Auth/AuthService.js'
 import { registerUser } from '../../src/services/Auth/RegisterUserService.js'
 
 const mongoServer = await MongoMemoryServer.create()
+jest.setTimeout(30000);
 describe('User Services', () => {
   beforeAll(async function () {
     await mongoose.connect(mongoServer.getUri(), { dbName: 'movies' })
   })
 
   beforeEach(async () => {
-      jest.setTimeout(30000);
       const collections = mongoose.connection.collections
     
       for (const key in collections) {
@@ -19,7 +19,6 @@ describe('User Services', () => {
   })
 
   it('Should register user', async () => {
-    jest.setTimeout(30000);
     const userDetails = {
       name: 'Oteng Wilson',
       email: 'hagioswilson@gmail.com',

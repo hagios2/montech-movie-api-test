@@ -6,10 +6,10 @@ import { addMovie } from '../../src/services/Movies/MovieService.js'
 
 const mongoServer = await MongoMemoryServer.create()
 
+jest.setTimeout(30000);
 describe('MovieRank Services', () => {
   let user = null
   beforeAll(async function () {
-    jest.setTimeout(30000);
     await mongoose.connect(mongoServer.getUri(), { dbName: 'movies' })
     user = await User.create({
       name: 'Oteng Wilson',
@@ -19,7 +19,6 @@ describe('MovieRank Services', () => {
   })
 
   it('Should create a movie rank', async () => {
-    jest.setTimeout(30000);
     const details = {
       adult: false,
       backdrop_path: '/m7ldf8UdWSDztU8STGp8artmGoa.jpg',
@@ -49,7 +48,6 @@ describe('MovieRank Services', () => {
   })
 
   it('Should get all ranked movies', async () => {
-    jest.setTimeout(30000);
     const ranks = await getMoviesRanks(user._id)
     expect(ranks.length).toBe(2)
   })

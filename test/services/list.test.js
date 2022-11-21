@@ -18,6 +18,7 @@ describe('Movie List Services', () => {
   })
 
   beforeEach(async () => {
+    jest.setTimeout(30000);
     const collections = mongoose.connection.collections
     for (const key in collections) {
       collections[key].deleteMany({})

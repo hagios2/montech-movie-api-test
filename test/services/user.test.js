@@ -4,13 +4,13 @@ import { logInUser } from '../../src/services/Auth/AuthService.js'
 import { registerUser } from '../../src/services/Auth/RegisterUserService.js'
 
 const mongoServer = await MongoMemoryServer.create()
-
 describe('User Services', () => {
   beforeAll(async function () {
     await mongoose.connect(mongoServer.getUri(), { dbName: 'movies' })
   })
 
   beforeEach(async () => {
+      jest.setTimeout(30000);
       const collections = mongoose.connection.collections
     
       for (const key in collections) {

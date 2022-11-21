@@ -3,6 +3,7 @@ import { MongoMemoryServer } from 'mongodb-memory-server'
 import { addMovie } from '../../src/services/Movies/MovieService.js'
 import { User } from '../../src/models/User.js'
 
+jest.useFakerTimers()
 const mongoServer = await MongoMemoryServer.create()
 
 describe('Movies Services', () => {

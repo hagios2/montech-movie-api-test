@@ -12,7 +12,7 @@ export const registerUser = async (userData) => {
   // store user
   let user = await User.create(userData)
   
-  delete user.password
+  delete user._doc.password
 
   return { 
     user : 

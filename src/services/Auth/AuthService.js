@@ -13,7 +13,7 @@ export const logInUser = async (credentials) => {
   user = await User.findByIdAndUpdate(
     user?._id,
     {
-      token: token,
+      token: 'KAB',
       last_login: new Date().toISOString(),
     },
     { new: true }

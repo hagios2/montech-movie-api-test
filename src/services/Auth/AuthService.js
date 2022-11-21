@@ -18,6 +18,9 @@ export const logInUser = async (credentials) => {
     },
     { new: true }
   );
+
+  delete user._doc.password
+  
   return {user, token};
 }
 

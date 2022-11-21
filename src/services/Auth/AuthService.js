@@ -9,8 +9,8 @@ export const logInUser = async (credentials) => {
     throw new Error('User not found')
   }
   await compareHash(user?.password, password)
-  const token = signToken(user.doc.toJSON())
-  console.log(user.toJSON(), user.doc.toJSON())
+  const token = signToken(user.toJSON())
+  console.log(user.toJSON())
   user = await User.findByIdAndUpdate(
     user?._id,
     {

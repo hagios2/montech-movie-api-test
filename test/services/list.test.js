@@ -9,6 +9,7 @@ const mongoServer = await MongoMemoryServer.create()
 describe('Movie List Services', () => {
   let user = null
   beforeAll(async function () {
+    jest.setTimeout(30000);
     await mongoose.connect(mongoServer.getUri(), { dbName: 'movies' })
     user = await User.create({
       name: 'Oteng Wilson',
@@ -26,6 +27,7 @@ describe('Movie List Services', () => {
   })
 
   it('Should create a new list', async () => {
+    jest.setTimeout(30000);
     const list = await createList({ name: 'My Movie', user: user._id })
     expect(list.name).toBe('My Movie')
     expect(list.user).toBe(user._id)
@@ -39,6 +41,7 @@ describe('Movie List Services', () => {
   })
 
   it('Should fail to delete if list not found', async () => {
+    jest.setTimeout(30000);
     const list = mongoose.Types.ObjectId()
     const id = list._id.toHexString()
     try {
@@ -49,6 +52,7 @@ describe('Movie List Services', () => {
   })
 
   it('Should return all lists associated to a user', async () => {
+    jest.setTimeout(30000);
     const details = {
       adult: false,
       backdrop_path: '/m7ldf8UdWSDztU8STGp8artmGoa.jpg',
@@ -83,6 +87,7 @@ describe('Movie List Services', () => {
   })
 
   it('should add movie to a list', async () => {
+    jest.setTimeout(30000);
     const list = await createList({ name: 'List1', user: user._id })
     const details = {
       adult: false,

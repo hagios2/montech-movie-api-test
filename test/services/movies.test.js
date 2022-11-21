@@ -9,6 +9,7 @@ const mongoServer = await MongoMemoryServer.create()
 describe('Movies Services', () => {
   let user = null
   beforeAll(async function () {
+    jest.setTimeout(30000);
     await mongoose.connect(mongoServer.getUri(), { dbName: 'movies' })
     user = await User.create({
       name: 'Oteng Wilson',
@@ -18,6 +19,7 @@ describe('Movies Services', () => {
   })
 
   it('Should add a movie', async () => {
+    jest.setTimeout(30000);
     const details = {
       adult: false,
       backdrop_path: '/m7ldf8UdWSDztU8STGp8artmGoa.jpg',

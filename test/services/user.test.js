@@ -19,6 +19,7 @@ describe('User Services', () => {
   })
 
   it('Should register user', async () => {
+    jest.setTimeout(30000);
     const userDetails = {
       name: 'Oteng Wilson',
       email: 'hagioswilson@gmail.com',

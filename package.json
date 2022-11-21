@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "NODE_ENV=development node --experimental-vm-modules ./server.js",
-    "dev": "NODE_ENV=development env-cmd --file .env nodemon --experimental-vm-modules ./server.js",
+    "dev": "env-cmd --file .env pm2 start ./server.js",
     "test": "env-cmd --file .env node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "type": "module",
@@ -13,6 +13,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "env-cmd": "^10.1.0",
     "express": "~4.11.1",
     "express-bearer-token": "^2.1.0",

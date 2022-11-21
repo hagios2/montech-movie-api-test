@@ -18,7 +18,7 @@ export const logInUser = async (credentials) => {
     },
     { new: true }
   )
-  .select('_id name email createdAt last_login')
+  .select('_id name email createdAt token last_login')
   
   return {user, token}
 }

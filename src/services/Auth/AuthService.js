@@ -1,12 +1,12 @@
-import { User } from "../../models/User.js";
-import { compareHash } from "../../utils/hashPassword.js";
-import { signToken } from "../../utils/signToken.js";
+import { User } from '../../models/User.js'
+import { compareHash } from '../../utils/hashPassword.js'
+import { signToken } from '../../utils/signToken.js'
 
 export const logInUser = async (credentials) => {
   const { email, password } = credentials
   let user = await User.findOne({ email })
   if (!user) {
-    throw new Error("User not found")
+    throw new Error('User not found')
   }
   await compareHash(user?.password, password)
   const token = signToken(user.toJSON())
@@ -18,12 +18,12 @@ export const logInUser = async (credentials) => {
     },
     { new: true }
   )
-  .select('_id, name, email, createdAt, last_login');
+  .select('_id name email createdAt last_login')
   
-  return {user, token};
+  return {user, token}
 }
 
 export const logOutUser = async (userId) => {
-  await User.findByIdAndUpdate(userId, { isLoggedIn: false, token: "" });
-};
+  await User.findByIdAndUpdate(userId, { isLoggedIn: false, token: '' })
+}
 
